@@ -1,33 +1,46 @@
 "use client"
 
 import Image from "next/image"
-import { ArrowUpRight, Play, Calendar, MapPin } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import Link from "next/link"
+import { ArrowUpRight, Play, Calendar, MapPin, Users, FileText, Award, Globe } from "lucide-react"
 
-const archiveImages = [
+const highlights = [
+  { icon: Users, value: "400+", label: "Participants" },
+  { icon: FileText, value: "80", label: "Communications" },
+  { icon: Award, value: "12", label: "Keynotes" },
+  { icon: Globe, value: "15", label: "Pays représentés" },
+]
+
+const galleryImages = [
+  {
+    src: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
+    alt: "Cérémonie d'ouverture RIPU25",
+    category: "Cérémonie"
+  },
   {
     src: "/ripu/2.png",
-    alt: "Conférenciers sur scène à RIPU25",
-    span: "col-span-2 row-span-2",
-    height: "h-full"
-  },
-  {
-    src: "/ripu/1.png",
-    alt: "Participants lors d'un atelier",
-    span: "col-span-1",
-    height: "h-40"
-  },
-  {
-    src: "/ripu/p10.jpg",
-    alt: "Table ronde avec invités internationaux",
-    span: "col-span-1",
-    height: "h-40"
+    alt: "Conférence plénière",
+    category: "Plénière"
   },
   {
     src: "/ripu/3.png",
-    alt: "Networking lors de la réception",
-    span: "col-span-2",
-    height: "h-32"
+    alt: "Photo de groupe",
+    category: "Photo de groupe"
+  },
+  {
+    src: "/ripu/p6.jpg",
+    alt: "Atelier interactif",
+    category: "Atelier"
+  },
+  {
+    src: "/ripu/1.png",
+    alt: "Remise des prix",
+    category: "Récompenses"
+  },
+  {
+    src: "/ripu/p8.jpg",
+    alt: "Comité d'organisation",
+    category: "Comité d'organisation"
   },
 ]
 
@@ -36,86 +49,104 @@ export function ArchiveSection() {
     <section id="archive" className="bg-background px-4 py-16 md:px-6 md:py-24">
       <div className="mx-auto max-w-[1800px]">
         {/* Header */}
-        <div className="mb-10 flex items-center gap-2">
-          <div className="h-1.5 w-1.5 rounded-full bg-[#6C2EB7]" />
-          <span className="text-xs font-semibold uppercase tracking-wider text-[#6C2EB7]">Édition Précédente</span>
+        <div className="mb-16 grid gap-8 lg:grid-cols-2 lg:items-end">
+          <div>
+            <div className="mb-4 flex items-center gap-2">
+              <div className="h-1.5 w-1.5 rounded-full bg-[#6C2EB7]" />
+              <span className="text-xs font-semibold uppercase tracking-wider text-[#6C2EB7]">Édition Précédente</span>
+            </div>
+            <h2 className="text-4xl font-bold leading-tight text-[#1B1142] md:text-5xl lg:text-6xl">
+              Retour sur<br />
+              <span className="text-[#6C2EB7]">RIPU&apos;25</span>
+            </h2>
+          </div>
+          <div className="flex flex-col gap-4 lg:items-end">
+            <p className="max-w-md text-muted-foreground lg:text-right">
+              Revivez les moments forts de l&apos;édition 2025. Une expérience académique inoubliable réunissant chercheurs et praticiens du monde entier.
+            </p>
+            <Link 
+              href="/archive"
+              className="group inline-flex items-center gap-2 rounded-full bg-[#1B1142] px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-[#6C2EB7]"
+            >
+              Voir toutes les photos
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </Link>
+          </div>
         </div>
 
-        {/* Main Grid */}
+        {/* Main Content Grid */}
         <div className="grid gap-6 lg:grid-cols-12">
-          {/* Left - Text Content */}
-          <div className="lg:col-span-4">
-            <h2 className="text-4xl font-bold text-[#1B1142] md:text-5xl lg:text-6xl">
-              RIPU<span className="font-light text-[#6C2EB7]">25</span>
-            </h2>
-            <p className="mt-4 text-muted-foreground">
-              Revivez les moments marquants de l&apos;édition précédente. Plus de 400 participants, 80 communications et des échanges enrichissants.
-            </p>
-
-            {/* Info Pills */}
-            <div className="mt-6 flex flex-wrap gap-3">
-              <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm shadow-sm">
-                <Calendar className="h-4 w-4 text-[#6C2EB7]" />
-                30-31 Mai 2025
-              </span>
-              <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm shadow-sm">
-                <MapPin className="h-4 w-4 text-[#6C2EB7]" />
-                Sousse, Tunisie
-              </span>
+          {/* Left Column - Featured Video Card */}
+          <div className="lg:col-span-5">
+            <div className="group relative  h-full min-h-[500px] overflow-hidden rounded-3xl">
+              <Image
+                src= "/ripu/ripu.jpg"
+                alt="Vidéo récapitulative RIPU25"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
             </div>
-
-            <button className="group mt-8 flex items-center gap-2 text-sm font-semibold text-[#1B1142] transition-colors hover:text-[#6C2EB7]">
-              Explorer l&apos;archive complète
-              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </button>
           </div>
 
-          {/* Right - Image Grid */}
-          <div className="lg:col-span-8">
-            <div className="grid grid-cols-4 gap-3">
-              {/* Large Featured Image */}
-              <div className="group relative col-span-2 row-span-2 h-80 overflow-hidden rounded-2xl md:h-96">
-                <Image
-                  src={archiveImages[0].src}
-                  alt={archiveImages[0].alt}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1B1142]/60 to-transparent" />
-                <button className="absolute bottom-4 left-4 flex items-center gap-2 rounded-full bg-white/20 px-4 py-2 backdrop-blur-sm transition-colors hover:bg-white/30">
-                  <Play className="h-4 w-4 fill-white text-white" />
-                  <span className="text-sm font-medium text-white">Voir la vidéo</span>
-                </button>
-              </div>
+          {/* Right Column */}
+          <div className="flex flex-col gap-6 lg:col-span-7">
+            {/* Stats Row */}
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+              {highlights.map((stat, index) => (
+                <div 
+                  key={index}
+                  className="group rounded-2xl bg-white p-5 shadow-sm transition-all hover:shadow-md hover:-translate-y-1"
+                >
+                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#6C2EB7] to-[#A64DFF]">
+                    <stat.icon className="h-5 w-5 text-white" />
+                  </div>
+                  <p className="text-2xl font-bold text-[#1B1142]">{stat.value}</p>
+                  <p className="text-sm text-muted-foreground">{stat.label}</p>
+                </div>
+              ))}
+            </div>
 
-              {/* Smaller Images */}
-              <div className="group relative col-span-1 h-40 overflow-hidden rounded-2xl md:h-[calc(50%-6px)]">
-                <Image
-                  src={archiveImages[1].src}
-                  alt={archiveImages[1].alt}
-                  fill
-                  className="object-cover object-[50%_0%] transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
+            {/* Image Grid */}
+            <div className="grid flex-1 grid-cols-3 gap-3">
+              {galleryImages.map((image, index) => (
+                <div 
+                  key={index}
+                  className="group relative aspect-square overflow-hidden rounded-2xl"
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1B1142]/80 via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+                  <div className="absolute bottom-0 left-0 right-0 translate-y-full p-3 transition-transform group-hover:translate-y-0">
+                    <span className="inline-block rounded-full bg-[#A64DFF] px-2 py-0.5 text-xs font-medium text-white">
+                      {image.category}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
 
-              <div className="group relative col-span-1 h-40 overflow-hidden rounded-2xl md:h-[calc(50%-6px)]">
-                <Image
-                  src={archiveImages[2].src}
-                  alt={archiveImages[2].alt}
-                  fill
-                  className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                />
+            {/* Info Cards Row */}
+            <div className="grid gap-4 md:grid-cols-2">
+              <div className="flex items-center gap-4 rounded-2xl bg-white p-4 shadow-sm">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#F8F6F3]">
+                  <Calendar className="h-5 w-5 text-[#6C2EB7]" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">Date</p>
+                  <p className="font-semibold text-[#1B1142]">30-31 Mai 2025</p>
+                </div>
               </div>
-
-              <div className="group relative col-span-2 h-32 overflow-hidden rounded-2xl md:h-[calc(50%-6px)]">
-                <Image
-                  src={archiveImages[3].src}
-                  alt={archiveImages[3].alt}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 flex items-center justify-center bg-[#1B1142]/40 opacity-0 transition-opacity group-hover:opacity-100">
-                  <span className="text-sm font-medium text-white">+12 photos</span>
+              <div className="flex items-center gap-4 rounded-2xl bg-white p-4 shadow-sm">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#F8F6F3]">
+                  <MapPin className="h-5 w-5 text-[#6C2EB7]" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">Lieu</p>
+                  <p className="font-semibold text-[#1B1142]">Sousse, Tunisie</p>
                 </div>
               </div>
             </div>

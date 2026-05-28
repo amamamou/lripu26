@@ -105,22 +105,6 @@ export function SpeakersSection() {
           ))}
         </div>
 
-        {/* CTA Card */}
-        <div className="mt-10 overflow-hidden rounded-3xl bg-gradient-to-r from-[#6C2EB7] to-[#A64DFF] p-8 md:p-12">
-          <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
-            <div>
-              <h3 className="text-2xl font-bold text-white md:text-3xl">
-                Rejoignez notre communauté d&apos;experts
-              </h3>
-              <p className="mt-2 text-white/80">
-                Inscrivez-vous pour recevoir les dernières actualités et l&apos;accès anticipé au programme complet.
-              </p>
-            </div>
-            <Button className="shrink-0 rounded-full bg-white px-8 py-6 text-[#6C2EB7] hover:bg-white/90">
-              S&apos;inscrire maintenant
-            </Button>
-          </div>
-        </div>
       </div>
     </section>
   )
