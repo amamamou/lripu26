@@ -6,10 +6,10 @@ import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 
 const navItems = [
-  { label: "Le Colloque", href: "#about" },
-  { label: "Programme", href: "#programme" },
-  { label: "Intervenants", href: "#speakers" },
-  { label: "Lieu", href: "#venue" },
+  { label: "Le Colloque", href: "about" },
+  { label: "Programme", href: "programme" },
+  { label: "Intervenants", href: "speakers" },
+  { label: "Lieu", href: "venue" },
 ]
 
 export function NavBar() {
@@ -53,12 +53,14 @@ export function NavBar() {
             {item.label}
           </Link>
         ))}
-        <Link href="#contact" className="text-sm font-medium text-white/70 transition-colors hover:text-white">
+        <Link href="/contact" className="text-sm font-medium text-white/70 transition-colors hover:text-white">
           Contact
         </Link>
-        <Button className="rounded-full bg-white px-6 py-2.5 text-sm font-semibold text-[#6C2EB7] hover:bg-white/90">
-          Inscription
-        </Button>
+        <Link href="/register">
+          <Button className="rounded-full bg-white px-6 py-2.5 text-sm font-semibold text-[#6C2EB7] hover:bg-white/90">
+            Inscription
+          </Button>
+        </Link>
       </div>
 
       {/* Mobile Menu Button */}
@@ -83,12 +85,14 @@ export function NavBar() {
                 {item.label}
               </Link>
             ))}
-            <Link href="#contact" className="text-base font-medium text-[#1B1142] hover:text-[#6C2EB7]">
+            <Link href="/contact" className="text-base font-medium text-[#1B1142] hover:text-[#6C2EB7]">
               Contact
             </Link>
-            <Button className="mt-2 rounded-full bg-[#6C2EB7] text-white hover:bg-[#5A2599]">
-              Inscription
-            </Button>
+            <Link href="/register">
+              <Button className="mt-2 rounded-full bg-[#6C2EB7] text-white hover:bg-[#5A2599]" onClick={() => setMobileMenuOpen(false)}>
+                Inscription
+              </Button>
+            </Link>
           </div>
         </div>
       )}
