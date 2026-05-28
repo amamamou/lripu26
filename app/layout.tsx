@@ -23,6 +23,10 @@ export const metadata: Metadata = {
         url: '/icon-dark-32x32.png',
         media: '(prefers-color-scheme: dark)',
       },
+      // fallback/default favicon
+      {
+        url: '/favicon.ico',
+      },
       {
         url: '/icon.svg',
         type: 'image/svg+xml',
@@ -39,7 +43,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className="bg-[#F8F6F3]">
-      <body className={`${montserrat.className} antialiased bg-[#F8F6F3]`}>
+    {/* suppressHydrationWarning is added to reduce noisy console errors when
+      small client/server attribute mismatches occur (for example caused by
+      browser extensions). This is a temporary mitigation while investigating
+      the root cause. */}
+    <body suppressHydrationWarning={true} className={`${montserrat.className} antialiased bg-[#F8F6F3]`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

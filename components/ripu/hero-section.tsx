@@ -51,12 +51,13 @@ export function HeroSection() {
               <span className="text-xl font-bold text-white">RIPU</span>
               <span className="text-xl font-light text-white/80">26</span>
             </div>
+            {/* Date next to logo (visible on md+) */}
+            <span className="hidden md:inline-flex ml-2 rounded-full bg-white/10 px-3 py-1.5 backdrop-blur-sm">
+              <span className="text-sm font-medium text-white">30 — 31 Oct 2026</span>
+            </span>
           </Link>
 
-          {/* Center Date Badge */}
-          <div className="hidden rounded-full bg-white/10 px-5 py-2.5 backdrop-blur-sm md:block">
-            <span className="text-sm font-medium text-white">30 — 31 Oct 2026</span>
-          </div>
+          {/* Center Date Badge removed — date is now shown next to the logo on md+ */}
 
           {/* Desktop Navigation */}
           <div className="hidden items-center gap-6 lg:flex">
