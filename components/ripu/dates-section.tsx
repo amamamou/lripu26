@@ -35,26 +35,8 @@ const dates = [
 
 export function DatesSection() {
   return (
-    <section id="dates" className="bg-background px-4 py-16 md:px-6 md:py-24">
+    <section id="dates" className="bg-background px-4 py-4 md:px-6 md:py-4 ">
       <div className="mx-auto max-w-[1800px]">
-        {/* Header */}
-        <div className="mb-16 grid gap-8 lg:grid-cols-2 lg:items-end">
-          <div>
-            <div className="mb-4 flex items-center gap-2">
-              <div className="h-1.5 w-1.5 rounded-full bg-[#6C2EB7]" />
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#6C2EB7]">Dates importantes</span>
-            </div>
-            <h2 className="text-4xl font-bold leading-tight text-[#1B1142] md:text-5xl lg:text-6xl">
-              Calendrier<br />
-              <span className="font-light text-[#6C2EB7]">clé</span>
-            </h2>
-          </div>
-          <div>
-            <p className="max-w-md text-muted-foreground lg:ml-auto">
-              Repérez les échéances essentielles pour soumettre et participer au colloque. Ne manquez aucune date importante.
-            </p>
-          </div>
-        </div>
 
         {/* Timeline Cards */}
         <div className="relative">
