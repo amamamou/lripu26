@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { ArrowLeft, Clock, MapPin, Users, Coffee, Award, Calendar, Download, ArrowUpRight, Mic, BookOpen, MessageSquare } from "lucide-react"
 import { FooterSection } from "@/components/ripu/footer-section"
+import ProgrammeHero from "@/components/ripu/programme-hero"
 
 const day1Sessions = [
   {
@@ -176,50 +177,8 @@ const getTypeColor = (type: string) => {
 export default function ProgrammePage() {
   return (
     <main className="min-h-screen bg-background">
-      {/* Header */}
-      <div className="bg-gradient-to-br from-[#1B1142] via-[#2D1B5E] to-[#6C2EB7] px-4 pb-24 pt-8 md:px-6">
-        <div className="mx-auto max-w-[1800px]">
-          <Link 
-            href="/"
-            className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-white/70 transition-colors hover:text-white"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Retour à l&apos;accueil
-          </Link>
-
-          <div className="grid gap-8 lg:grid-cols-2 lg:items-end">
-            <div>
-              <div className="mb-4 flex items-center gap-2">
-                <div className="h-1.5 w-1.5 rounded-full bg-[#A64DFF]" />
-                <span className="text-xs font-semibold uppercase tracking-wider text-[#A64DFF]">Agenda</span>
-              </div>
-              <h1 className="text-4xl font-bold text-white md:text-5xl lg:text-6xl">
-                Programme<br />
-                <span className="text-[#A64DFF]">RIPU&apos;26</span>
-              </h1>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm text-white">
-                  <Calendar className="h-4 w-4" />
-                  30-31 Octobre 2026
-                </span>
-                <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm text-white">
-                  <MapPin className="h-4 w-4" />
-                  Sousse, Tunisie
-                </span>
-              </div>
-            </div>
-            <div className="flex flex-col gap-4 lg:items-end">
-              <p className="max-w-md text-white/70 lg:text-right">
-                Deux journées riches en keynotes, sessions parallèles, ateliers pratiques et networking.
-              </p>
-              <button className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 font-semibold text-[#6C2EB7] transition-all hover:bg-[#A64DFF] hover:text-white">
-                <Download className="h-4 w-4" />
-                Télécharger le PDF
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* Header (extracted component) */}
+      <ProgrammeHero />
 
       {/* Legend */}
       <div className="px-4 md:px-6">
@@ -440,6 +399,17 @@ export default function ProgrammePage() {
         </div>
       </section>
 
+
+      {/* Mobile-only CTA: placed at the end of the programme page, above the footer */}
+      <div className="sm:hidden px-4 pb-8">
+        <div className="mx-auto max-w-[1800px]">
+          <div className="px-2">
+            <button className="w-full rounded-full bg-white px-6 py-3 font-semibold text-[#6C2EB7]">
+              Télécharger le PDF
+            </button>
+          </div>
+        </div>
+      </div>
 
       <FooterSection />
     </main>

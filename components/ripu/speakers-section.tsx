@@ -4,42 +4,46 @@ import Image from "next/image"
 import { ArrowUpRight, Linkedin, Twitter } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
+const questionMarkSvg = encodeURIComponent(`
+  <svg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'>
+    <rect width='100%' height='100%' rx='28' fill='#F3F4F6'/>
+    <g transform='translate(0,30)'>
+      <circle cx='200' cy='120' r='72' fill='#F3F4F6' />
+      <text x='200' y='140' text-anchor='middle' font-family='Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial' font-size='96' fill='#6C2EB7' font-weight='700'>?</text>
+    </g>
+  </svg>
+`)
+
 const speakers = [
   {
-    name: "Prof. Rym Mamlouk Mellouli",
-    field: "Technologie Éducative",
-    institution: "Université de Tunis",
+    name: "Prof. Mohammed Al-Amin",
+    field: "Pédagogie numérique et IA",
+    institution: "🇲🇦 Maroc — SF",
     image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face",
   },
   {
-    name: "Dr. Marie Fontaine",
-    field: "Recherche en Pédagogie",
-    institution: "Université de Paris",
+    name: "Dr. Sophie Fontaine",
+    field: "Innovation pédagogique",
+    institution: "🇫🇷 France — AB",
     image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face",
   },
   {
-    name: "Prof. Elena Rossi",
-    field: "Politique Éducative",
-    institution: "Université de Rome",
+    name: "Prof. Ahmed Bensalem",
+    field: "Qualité de l'enseignement",
+    institution: "🇹🇳 Tunisie — LC",
     image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=400&fit=crop&crop=face",
   },
   {
-    name: "Dr. Fatima Al-Mazrouei",
-    field: "Innovation Curriculaire",
-    institution: "UAE University",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=400&h=400&fit=crop&crop=face",
-  },
-  {
-    name: "Prof. James Thompson",
-    field: "Leadership Académique",
-    institution: "University of Oxford",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
-  },
-  {
-    name: "Dr. Yuki Tanaka",
-    field: "Analytique de l'Apprentissage",
-    institution: "Tokyo Institute",
+    name: "Dr. Laure Chenet",
+    field: "Évaluation par compétences",
+    institution: "🇧🇪 Belgique",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
+  },
+  {
+    name: "?",
+    field: "Intervenant à confirmer",
+    institution: "Annonce prochainement",
+    image: `data:image/svg+xml;utf8,${questionMarkSvg}`,
   },
 ]
 

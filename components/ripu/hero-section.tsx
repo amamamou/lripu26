@@ -7,10 +7,10 @@ import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 
 const navItems = [
-  { label: "Le Colloque", href: "#about" },
-  { label: "Programme", href: "#programme" },
-  { label: "Intervenants", href: "#speakers" },
-  { label: "Lieu", href: "#venue" },
+  { label: "Le Colloque", href: "/about" },
+  { label: "Programme", href: "/programme" },
+  { label: "Intervenants", href: "/speakers" },
+  { label: "Lieu", href: "/venue" },
 ]
 
 export function HeroSection() {
@@ -70,7 +70,7 @@ export function HeroSection() {
                 {item.label}
               </Link>
             ))}
-            <Link href="#contact" className="text-sm font-medium text-white/70 transition-colors hover:text-white">
+            <Link href="/contact" className="text-sm font-medium text-white/70 transition-colors hover:text-white">
               Contact
             </Link>
             <Link href="/register">
@@ -103,7 +103,7 @@ export function HeroSection() {
                   {item.label}
                 </Link>
               ))}
-              <Link href="#contact" className="text-base font-medium text-[#1B1142] hover:text-[#6C2EB7]">
+              <Link href="/contact" className="text-base font-medium text-[#1B1142] hover:text-[#6C2EB7]">
                 Contact
               </Link>
               <Link href="/register">

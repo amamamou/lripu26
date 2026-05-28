@@ -4,6 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft, Play, Calendar, MapPin, Users, FileText, Award, Globe, Download, ArrowUpRight } from "lucide-react"
 import { FooterSection } from "@/components/ripu/footer-section"
+import ArchiveHero from "@/components/ripu/archive-hero"
 
 const stats = [
   { icon: Users, value: "420", label: "Participants" },
@@ -64,46 +65,8 @@ const testimonials = [
 export default function ArchivePage() {
   return (
     <main className="min-h-screen bg-background">
-      {/* Header */}
-      <div className="bg-gradient-to-br from-[#1B1142] via-[#2D1B5E] to-[#6C2EB7] px-4 pb-24 pt-8 md:px-6">
-        <div className="mx-auto max-w-[1800px]">
-          <Link 
-            href="/"
-            className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-white/70 transition-colors hover:text-white"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Retour à l&apos;accueil
-          </Link>
-
-          <div className="grid gap-8 lg:grid-cols-2 lg:items-end">
-            <div>
-              <div className="mb-4 flex items-center gap-2">
-                <div className="h-1.5 w-1.5 rounded-full bg-[#A64DFF]" />
-                <span className="text-xs font-semibold uppercase tracking-wider text-[#A64DFF]">Édition Précédente</span>
-              </div>
-              <h1 className="text-4xl font-bold text-white md:text-5xl lg:text-6xl">
-                Retour sur<br />
-                <span className="text-[#A64DFF]">RIPU&apos;25</span>
-              </h1>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm text-white">
-                  <Calendar className="h-4 w-4" />
-                  30-31 Mai 2025
-                </span>
-                <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm text-white">
-                  <MapPin className="h-4 w-4" />
-                  Sousse, Tunisie
-                </span>
-              </div>
-            </div>
-            <div>
-              <p className="max-w-md text-white/70 lg:ml-auto lg:text-right">
-                Revivez les moments forts de la 25ème édition. Une expérience académique inoubliable qui a réuni chercheurs et praticiens du monde entier.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* Header (extracted) */}
+      <ArchiveHero />
 
       {/* Stats */}
       <div className="px-4 md:px-6">
