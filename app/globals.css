@@ -1,0 +1,174 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Soft cream background like Waveyu */
+  --background: #F8F6F3;
+  --foreground: #1B1142;
+  --card: #FFFFFF;
+  --card-foreground: #1B1142;
+  --popover: #FFFFFF;
+  --popover-foreground: #1B1142;
+  --primary: #6C2EB7;
+  --primary-foreground: #FFFFFF;
+  --secondary: #EDEBE8;
+  --secondary-foreground: #1B1142;
+  --muted: #F0EDE9;
+  --muted-foreground: #6B6B6B;
+  --accent: #A64DFF;
+  --accent-foreground: #FFFFFF;
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: #E8E5E1;
+  --input: #E8E5E1;
+  --ring: #6C2EB7;
+  --chart-1: #6C2EB7;
+  --chart-2: #A64DFF;
+  --chart-3: #1B1142;
+  --chart-4: #E6E6E6;
+  --chart-5: #8B5CF6;
+  --radius: 1rem;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #1B1142;
+  --sidebar-primary: #6C2EB7;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F5F5F5;
+  --sidebar-accent-foreground: #1B1142;
+  --sidebar-border: #E6E6E6;
+  --sidebar-ring: #6C2EB7;
+  
+  /* RIPU Custom Colors */
+  --purple-deep: #6C2EB7;
+  --purple-bright: #A64DFF;
+  --navy-dark: #1B1142;
+  --gray-light: #E6E6E6;
+  --cream: #F8F6F3;
+  --cream-dark: #EDEBE8;
+}
+
+.dark {
+  --background: #1B1142;
+  --foreground: #FFFFFF;
+  --card: #2D1F5C;
+  --card-foreground: #FFFFFF;
+  --popover: #2D1F5C;
+  --popover-foreground: #FFFFFF;
+  --primary: #A64DFF;
+  --primary-foreground: #FFFFFF;
+  --secondary: #3D2970;
+  --secondary-foreground: #FFFFFF;
+  --muted: #3D2970;
+  --muted-foreground: #B8B8B8;
+  --accent: #6C2EB7;
+  --accent-foreground: #FFFFFF;
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: #3D2970;
+  --input: #3D2970;
+  --ring: #A64DFF;
+  --chart-1: #A64DFF;
+  --chart-2: #6C2EB7;
+  --chart-3: #8B5CF6;
+  --chart-4: #C084FC;
+  --chart-5: #DDD6FE;
+  --sidebar: #2D1F5C;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #A64DFF;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #3D2970;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #3D2970;
+  --sidebar-ring: #A64DFF;
+  
+  --purple-deep: #A64DFF;
+  --purple-bright: #C084FC;
+  --navy-dark: #0D0A1F;
+  --gray-light: #3D2970;
+  --cream: #1B1142;
+  --cream-dark: #2D1F5C;
+}
+
+@theme inline {
+  --font-sans: 'Montserrat', 'Montserrat Fallback', sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 16px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  
+  /* RIPU Custom Colors */
+  --color-purple-deep: var(--purple-deep);
+  --color-purple-bright: var(--purple-bright);
+  --color-navy-dark: var(--navy-dark);
+  --color-gray-light: var(--gray-light);
+  --color-cream: var(--cream);
+  --color-cream-dark: var(--cream-dark);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--purple-deep);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--purple-bright);
+}
