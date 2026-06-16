@@ -2,108 +2,112 @@
 
 import Image from "next/image"
 import { ArrowUpRight } from "lucide-react"
+import Link from "next/link"
 
 export function AboutSection() {
   return (
     <section id="about" className="bg-white px-6 py-20 md:px-8 md:py-32">
       <div className="mx-auto max-w-7xl">
-        {/* Section Header */}
-        <div className="mb-16 grid gap-8 md:grid-cols-2 md:gap-12">
-          <div>
-            <div className="mb-4 inline-flex items-center gap-2">
-              <div className="h-1 w-1 rounded-full bg-gray-900" />
-              <span className="text-xs font-semibold uppercase tracking-wider text-gray-600">À propos du colloque</span>
-            </div>
-            <h2 className="text-4xl font-bold leading-tight text-gray-900 md:text-5xl">
-              L&apos;avenir de l&apos;éducation supérieure
-            </h2>
+        {/* Header */}
+        <div className="mb-20">
+          <div className="mb-4 inline-flex items-center gap-2">
+            <div className="h-1 w-1 rounded-full bg-purple-600" />
+            <span className="text-xs font-semibold uppercase tracking-wider text-purple-600">À propos</span>
           </div>
-          <div className="flex flex-col justify-center">
-            <p className="text-lg leading-relaxed text-gray-600 md:text-xl">
-              RIPU26 réunit les meilleurs esprits de la pédagogie universitaire pour explorer les défis contemporains de l&apos;enseignement supérieur face à l&apos;intelligence artificielle et aux approches par compétences.
-            </p>
-          </div>
+          <h2 className="text-5xl md:text-6xl font-light leading-tight text-black">
+            Enseigner et évaluer à l&apos;ère de l&apos;IA et de l&apos;APC
+          </h2>
         </div>
 
-        {/* Content Grid */}
-        <div className="grid gap-8 md:grid-cols-3 md:gap-6">
-          {/* Card 1 */}
-          <div className="flex flex-col rounded-lg border border-gray-200 bg-gray-50 p-8">
-            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-gray-900">
-              <span className="text-lg font-bold text-white">01</span>
+        {/* Main Grid */}
+        <div className="grid gap-12 md:grid-cols-12">
+          {/* Left Column - Info Tags */}
+          <div className="md:col-span-4 flex flex-col gap-6">
+            <div className="space-y-3">
+              <div className="flex items-center gap-2">
+                <div className="h-2 w-2 rounded-full bg-purple-600" />
+                <span className="text-sm font-medium text-black">Recherche Innovante</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="h-2 w-2 rounded-full bg-purple-600" />
+                <span className="text-sm font-medium text-black">Ateliers Pratiques</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="h-2 w-2 rounded-full bg-purple-600" />
+                <span className="text-sm font-medium text-black">Réseau International</span>
+              </div>
             </div>
-            <h3 className="mb-3 text-xl font-bold text-gray-900">Recherche innovante</h3>
-            <p className="leading-relaxed text-gray-600">
-              Accédez aux dernières découvertes en pédagogie universitaire, évaluation et intelligence artificielle.
+
+            <p className="text-base leading-relaxed text-gray-700">
+              RIPU rassemble depuis des années les acteurs de l&apos;enseignement supérieur. Cette 2ème édition explore les défis de l&apos;IA et de l&apos;APC dans nos pratiques pédagogiques quotidiennes.
             </p>
-          </div>
 
-          {/* Card 2 */}
-          <div className="flex flex-col rounded-lg border border-gray-200 bg-gray-50 p-8">
-            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-gray-900">
-              <span className="text-lg font-bold text-white">02</span>
-            </div>
-            <h3 className="mb-3 text-xl font-bold text-gray-900">Ateliers pratiques</h3>
-            <p className="leading-relaxed text-gray-600">
-              Participez à des sessions interactives pour renforcer vos compétences pédagogiques et vos pratiques.
-            </p>
-          </div>
-
-          {/* Card 3 */}
-          <div className="flex flex-col rounded-lg border border-gray-200 bg-gray-50 p-8">
-            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-gray-900">
-              <span className="text-lg font-bold text-white">03</span>
-            </div>
-            <h3 className="mb-3 text-xl font-bold text-gray-900">Réseau international</h3>
-            <p className="leading-relaxed text-gray-600">
-              Connectez-vous avec des professionnels d&apos;enseignement de plus de 25 pays du monde.
-            </p>
-          </div>
-        </div>
-
-        {/* Featured Section */}
-        <div className="mt-16 grid gap-8 md:grid-cols-2 md:gap-12 md:mt-24">
-          {/* Left - Image */}
-          <div className="relative h-96 overflow-hidden rounded-lg border border-gray-200 md:h-full">
-            <Image
-              src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2940&auto=format&fit=crop"
-              alt="Conference workshop session"
-              fill
-              className="object-cover"
-            />
-          </div>
-
-          {/* Right - Content */}
-          <div className="flex flex-col justify-center">
-            <div className="mb-6 inline-flex items-center gap-2">
-              <div className="h-1 w-1 rounded-full bg-gray-900" />
-              <span className="text-xs font-semibold uppercase tracking-wider text-gray-600">En vedette</span>
-            </div>
-            <h3 className="mb-6 text-3xl font-bold text-gray-900 md:text-4xl">
-              Thématiques 2026
-            </h3>
-            <ul className="space-y-4 mb-8">
-              <li className="flex items-start gap-3">
-                <div className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gray-900" />
-                <span className="text-lg text-gray-700">Intelligence Artificielle et pédagogie</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gray-900" />
-                <span className="text-lg text-gray-700">Approches par compétences</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gray-900" />
-                <span className="text-lg text-gray-700">Évaluation innovante</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gray-900" />
-                <span className="text-lg text-gray-700">Transformation pédagogique</span>
-              </li>
-            </ul>
-            <button className="group inline-flex items-center gap-2 text-sm font-semibold text-gray-900 transition-colors hover:text-gray-600">
-              Découvrir le programme
+            <Link
+              href="/authors"
+              className="group inline-flex items-center gap-2 text-sm font-semibold text-purple-600 hover:text-purple-700 transition-colors w-fit"
+            >
+              Rejoindre le Colloque
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </button>
+            </Link>
+          </div>
+
+          {/* Center Column - Video */}
+          <div className="md:col-span-4 flex items-center justify-center">
+            <div
+              className="w-full max-w-xs overflow-hidden rounded-2xl border border-gray-200"
+              style={{ aspectRatio: "9 / 16" }}
+            >
+              <iframe
+                className="block h-full w-full"
+                src="https://www.youtube.com/embed/pnKB0Pl3hdQ?autoplay=1&mute=1&loop=1&playlist=pnKB0Pl3hdQ&controls=1&rel=0"
+                title="RIPU 2026"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
+          </div>
+
+          {/* Right Column - Info Cards */}
+          <div className="md:col-span-4 flex flex-col gap-4">
+            {/* Location Card */}
+            <div className="rounded-xl border border-gray-200 p-6 hover:border-purple-300 hover:bg-purple-50/20 transition-all">
+              <span className="text-xs uppercase tracking-wider font-semibold text-gray-600">Lieu</span>
+              <p className="mt-3 text-lg font-medium text-black">Sousse, Tunisie</p>
+            </div>
+
+            {/* Date Card */}
+            <div className="rounded-xl border border-gray-200 p-6 hover:border-purple-300 hover:bg-purple-50/20 transition-all">
+              <span className="text-xs uppercase tracking-wider font-semibold text-gray-600">Dates</span>
+              <p className="mt-3 text-lg font-medium text-black">30–31 Octobre 2026</p>
+            </div>
+
+            {/* Public Card */}
+            <div className="rounded-xl border border-gray-200 p-6 hover:border-purple-300 hover:bg-purple-50/20 transition-all">
+              <span className="text-xs uppercase tracking-wider font-semibold text-gray-600">Public Cible</span>
+              <p className="mt-3 text-base font-medium text-black">Enseignants, Chercheurs, Responsables</p>
+            </div>
+
+            {/* President Card */}
+            <div className="rounded-xl border border-purple-200 bg-purple-50 p-6 mt-2">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="h-12 w-12 overflow-hidden rounded-full border-2 border-purple-300">
+                  <Image
+                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400&auto=format&fit=crop"
+                    alt="President"
+                    width={48}
+                    height={48}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-black">Sonia Sahli</p>
+                  <p className="text-xs text-gray-600">Présidente du Comité</p>
+                </div>
+              </div>
+              <p className="text-sm italic leading-relaxed text-gray-700">
+                &ldquo;RIPU est né d&apos;une vision. Aujourd&apos;hui, nous construisons une communauté de pédagogues qui privilégie l&apos;excellence et l&apos;innovation.&rdquo;
+              </p>
+            </div>
           </div>
         </div>
       </div>

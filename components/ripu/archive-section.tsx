@@ -2,151 +2,140 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowUpRight, Play, Calendar, MapPin, Users, FileText, Award, Globe } from "lucide-react"
+import { ArrowUpRight, Calendar, MapPin, Users, FileText, Award, Globe } from "lucide-react"
 
 const highlights = [
   { icon: Users, value: "400+", label: "Participants" },
   { icon: FileText, value: "80", label: "Communications" },
   { icon: Award, value: "12", label: "Keynotes" },
-  { icon: Globe, value: "15", label: "Pays représentés" },
+  { icon: Globe, value: "15", label: "Pays" },
 ]
 
 const galleryImages = [
   {
-    src: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
+    src: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=400&fit=crop",
     alt: "Cérémonie d'ouverture RIPU25",
-    category: "Cérémonie"
   },
   {
-    src: "/ripu/2.png",
+    src: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=400&fit=crop",
     alt: "Conférence plénière",
-    category: "Plénière"
   },
   {
-    src: "/ripu/3.png",
+    src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
     alt: "Photo de groupe",
-    category: "Photo de groupe"
   },
   {
-    src: "/ripu/p6.jpg",
+    src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
     alt: "Atelier interactif",
-    category: "Atelier"
   },
   {
-    src: "/ripu/1.png",
+    src: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=400&fit=crop",
     alt: "Remise des prix",
-    category: "Récompenses"
   },
   {
-    src: "/ripu/p8.jpg",
-    alt: "Comité d'organisation",
-    category: "Comité d'organisation"
+    src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
+    alt: "Participants",
   },
 ]
 
 export function ArchiveSection() {
   return (
-    <section id="archive" className="bg-background px-4 py-16 md:px-6 md:py-24">
-      <div className="mx-auto max-w-[1800px]">
+    <section id="archive" className="bg-white px-6 py-20 md:px-8 md:py-32">
+      <div className="mx-auto max-w-7xl">
         {/* Header */}
-        <div className="mb-16 grid gap-8 lg:grid-cols-2 lg:items-end">
+        <div className="mb-16 grid gap-8 md:grid-cols-2 md:items-end">
           <div>
             <div className="mb-4 flex items-center gap-2">
-              <div className="h-1.5 w-1.5 rounded-full bg-[#6C2EB7]" />
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#6C2EB7]">Édition Précédente</span>
+              <div className="h-1 w-1 rounded-full bg-purple-600" />
+              <span className="text-xs font-semibold uppercase tracking-wider text-purple-600">Édition Précédente</span>
             </div>
-            <h2 className="text-4xl font-bold leading-tight text-[#1B1142] md:text-5xl lg:text-6xl">
-              Retour sur<br />
-              <span className="text-[#6C2EB7]">RIPU&apos;25</span>
+            <h2 className="text-5xl md:text-6xl font-light leading-tight text-black">
+              Retour sur RIPU&apos;25
             </h2>
           </div>
-          <div className="flex flex-col gap-4 lg:items-end">
-            <p className="max-w-md text-muted-foreground lg:text-right">
-              Revivez les moments forts de l&apos;édition 2025. Une expérience académique inoubliable réunissant chercheurs et praticiens du monde entier.
+          <div className="flex flex-col gap-4 md:items-end">
+            <p className="max-w-md text-gray-600">
+              Revivez les moments forts de l&apos;édition 2025. Une expérience académique inoubliable réunissant chercheurs et praticiens.
             </p>
             <Link 
               href="/archive"
-              className="group inline-flex items-center gap-2 rounded-full bg-[#1B1142] px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-[#6C2EB7]"
+              className="group inline-flex items-center gap-2 rounded-full bg-black px-6 py-3 text-sm font-semibold text-white hover:bg-purple-700 transition-all w-fit"
             >
-              Voir toutes les photos
+              Galerie complète
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </Link>
           </div>
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid gap-6 lg:grid-cols-12">
-          {/* Left Column - Featured Video Card */}
-          <div className="lg:col-span-5">
-            <div className="group relative  h-full min-h-[500px] overflow-hidden rounded-3xl">
+        <div className="grid gap-8 lg:grid-cols-3">
+          {/* Left Column - Featured Image */}
+          <div className="lg:col-span-1">
+            <div className="group relative h-full min-h-[400px] overflow-hidden rounded-2xl">
               <Image
-                src= "/ripu/ripu.jpg"
-                alt="Vidéo récapitulative RIPU25"
+                src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=800&fit=crop"
+                alt="Moments RIPU25"
                 fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
           </div>
 
           {/* Right Column */}
-          <div className="flex flex-col gap-6 lg:col-span-7">
+          <div className="flex flex-col gap-8 lg:col-span-2">
             {/* Stats Row */}
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {highlights.map((stat, index) => (
                 <div 
                   key={index}
-                  className="group rounded-2xl bg-white p-5 shadow-sm transition-all hover:shadow-md hover:-translate-y-1"
+                  className="group rounded-xl border border-gray-200 bg-white p-6 hover:border-purple-300 hover:bg-purple-50/10 transition-all"
                 >
-                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#6C2EB7] to-[#A64DFF]">
-                    <stat.icon className="h-5 w-5 text-white" />
+                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-purple-600/10">
+                    <stat.icon className="h-5 w-5 text-purple-600" />
                   </div>
-                  <p className="text-2xl font-bold text-[#1B1142]">{stat.value}</p>
-                  <p className="text-sm text-muted-foreground">{stat.label}</p>
+                  <p className="text-2xl md:text-3xl font-bold text-black">{stat.value}</p>
+                  <p className="mt-1 text-xs md:text-sm text-gray-600 font-medium">{stat.label}</p>
                 </div>
               ))}
             </div>
 
             {/* Image Grid */}
-            <div className="grid flex-1 grid-cols-3 gap-3">
+            <div className="grid grid-cols-3 gap-3 flex-1">
               {galleryImages.map((image, index) => (
                 <div 
                   key={index}
-                  className="group relative aspect-square overflow-hidden rounded-2xl"
+                  className="group relative aspect-square overflow-hidden rounded-xl border border-gray-200 hover:border-purple-300 transition-all"
                 >
                   <Image
                     src={image.src}
                     alt={image.alt}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1B1142]/80 via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-                  <div className="absolute bottom-0 left-0 right-0 translate-y-full p-3 transition-transform group-hover:translate-y-0">
-                    <span className="inline-block rounded-full bg-[#A64DFF] px-2 py-0.5 text-xs font-medium text-white">
-                      {image.category}
-                    </span>
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
               ))}
             </div>
 
-            {/* Info Cards Row */}
-            <div className="grid gap-4 md:grid-cols-2">
-              <div className="flex items-center gap-4 rounded-2xl bg-white p-4 shadow-sm">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#F8F6F3]">
-                  <Calendar className="h-5 w-5 text-[#6C2EB7]" />
+            {/* Info Cards */}
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="rounded-xl border border-gray-200 bg-white p-5 flex items-center gap-4 hover:border-purple-300 transition-all">
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-purple-600/10 flex-shrink-0">
+                  <Calendar className="h-6 w-6 text-purple-600" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Date</p>
-                  <p className="font-semibold text-[#1B1142]">30-31 Mai 2025</p>
+                  <p className="text-xs text-gray-600 font-medium uppercase">Date</p>
+                  <p className="text-sm font-semibold text-black">30-31 Mai 2025</p>
                 </div>
               </div>
-              <div className="flex items-center gap-4 rounded-2xl bg-white p-4 shadow-sm">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#F8F6F3]">
-                  <MapPin className="h-5 w-5 text-[#6C2EB7]" />
+              <div className="rounded-xl border border-gray-200 bg-white p-5 flex items-center gap-4 hover:border-purple-300 transition-all">
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-purple-600/10 flex-shrink-0">
+                  <MapPin className="h-6 w-6 text-purple-600" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Lieu</p>
-                  <p className="font-semibold text-[#1B1142]">Sousse, Tunisie</p>
+                  <p className="text-xs text-gray-600 font-medium uppercase">Lieu</p>
+                  <p className="text-sm font-semibold text-black">Sousse, Tunisie</p>
                 </div>
               </div>
             </div>
