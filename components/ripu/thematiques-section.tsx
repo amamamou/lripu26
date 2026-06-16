@@ -8,7 +8,7 @@ const themes = [
   {
     number: "01",
     icon: Brain,
-    title: "Intelligence Artificielle Générative & Enseignement",
+    title: "Intelligence Artificielle & Enseignement",
     image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800&auto=format&fit=crop",
     topics: [
       "L'IAG comme tuteur d'apprentissage",
@@ -42,70 +42,61 @@ const themes = [
 
 export function ThematiquesSection() {
   return (
-    <section id="themes" className="bg-[#1B1142] px-4 py-16 md:px-6 md:py-24">
-      <div className="mx-auto max-w-[1800px]">
+    <section id="themes" className="bg-white px-6 py-20 md:px-8 md:py-32">
+      <div className="mx-auto max-w-7xl">
         {/* Header */}
-        <div className="mb-12 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+        <div className="mb-12 flex flex-col justify-between gap-8 md:flex-row md:items-end">
           <div>
-            <div className="mb-3 flex items-center gap-2">
-              <div className="h-1.5 w-1.5 rounded-full bg-[#A64DFF]" />
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#A64DFF]">Thématiques</span>
+            <div className="mb-4 inline-flex items-center gap-2">
+              <div className="h-1 w-1 rounded-full bg-gray-900" />
+              <span className="text-xs font-semibold uppercase tracking-wider text-gray-600">Axes de recherche</span>
             </div>
-            <h2 className="text-3xl font-bold text-white md:text-4xl lg:text-5xl">
-              Trois axes de recherche
-              <br />
-              <span className="text-[#A64DFF]">pour transformer</span> l&apos;enseignement
+            <h2 className="text-4xl font-bold leading-tight text-gray-900 md:text-5xl">
+              Trois axes pour transformer l&apos;enseignement
             </h2>
           </div>
-          <Button className="w-fit rounded-full bg-white px-6 text-[#1B1142] hover:bg-white/90">
+          <Button className="w-fit rounded-md bg-gray-900 px-6 py-3 text-white hover:bg-gray-800">
             Soumettre une communication
           </Button>
         </div>
 
         {/* Theme Cards */}
-        <div className="grid gap-5 md:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-3 md:gap-6">
           {themes.map((theme) => (
             <div
               key={theme.number}
-              className="group relative overflow-hidden rounded-3xl bg-white/5 backdrop-blur-sm transition-all hover:bg-white/10"
+              className="flex flex-col overflow-hidden rounded-lg border border-gray-200 transition-all hover:shadow-lg hover:border-gray-300"
             >
               {/* Image */}
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-48 overflow-hidden bg-gray-100">
                 <Image
                   src={theme.image}
                   alt={theme.title}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="object-cover transition-transform duration-500 hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1B1142] to-transparent" />
-                
                 {/* Number Badge */}
-                <div className="absolute left-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#A64DFF]">
+                <div className="absolute left-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-gray-900">
                   <span className="text-sm font-bold text-white">{theme.number}</span>
-                </div>
-                
-                {/* Icon */}
-                <div className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
-                  <theme.icon className="h-5 w-5 text-white" />
                 </div>
               </div>
 
               {/* Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-white">{theme.title}</h3>
+              <div className="flex flex-1 flex-col bg-white p-8">
+                <h3 className="mb-6 text-xl font-bold text-gray-900">{theme.title}</h3>
                 
-                <ul className="mt-4 space-y-2">
+                <ul className="mb-8 flex-1 space-y-3">
                   {theme.topics.map((topic) => (
-                    <li key={topic} className="flex items-start gap-2 text-sm text-white/70">
-                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#A64DFF]" />
-                      {topic}
+                    <li key={topic} className="flex items-start gap-3">
+                      <div className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-gray-900" />
+                      <span className="text-sm leading-relaxed text-gray-700">{topic}</span>
                     </li>
                   ))}
                 </ul>
 
-                <button className="group/btn mt-6 flex items-center gap-2 text-sm font-semibold text-[#A64DFF] transition-colors hover:text-white">
+                <button className="group inline-flex items-center gap-2 text-sm font-semibold text-gray-900 transition-colors hover:text-gray-600">
                   En savoir plus
-                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />
+                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </button>
               </div>
             </div>
@@ -113,16 +104,16 @@ export function ThematiquesSection() {
         </div>
 
         {/* Stats Row */}
-        <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4">
+        <div className="mt-16 grid grid-cols-2 gap-6 md:grid-cols-4">
           {[
             { value: "100+", label: "Communications attendues" },
             { value: "50+", label: "Ateliers pratiques" },
             { value: "25", label: "Pays représentés" },
-            { value: "3", label: "Jours de colloque" },
+            { value: "2", label: "Jours de colloque" },
           ].map((stat) => (
-            <div key={stat.label} className="rounded-2xl bg-white/5 p-6 text-center backdrop-blur-sm">
-              <span className="text-3xl font-bold text-white md:text-4xl">{stat.value}</span>
-              <p className="mt-1 text-sm text-white/60">{stat.label}</p>
+            <div key={stat.label} className="rounded-lg border border-gray-200 bg-gray-50 p-6 text-center">
+              <span className="block text-3xl font-bold text-gray-900 md:text-4xl">{stat.value}</span>
+              <p className="mt-2 text-sm text-gray-600">{stat.label}</p>
             </div>
           ))}
         </div>
@@ -130,3 +121,4 @@ export function ThematiquesSection() {
     </section>
   )
 }
+

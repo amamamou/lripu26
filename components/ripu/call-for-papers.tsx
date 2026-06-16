@@ -4,101 +4,73 @@ import Image from "next/image"
 import { ArrowUpRight, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-const roomTypes = [
-  { name: "Axe 1 : Intelligence Artificielle et Enseignement", expanded: false },
-  { name: "Axe 2 : Approche par Compétences (APC)", expanded: false },
-  { name: "Axe 3 : Évaluation et Certification", expanded: false },
-  { name: "Axe 4 : Genre et Équité en Éducation", expanded: false },
+const themes = [
+  { name: "Intelligence Artificielle et Enseignement" },
+  { name: "Approche par Compétences (APC)" },
+  { name: "Évaluation et Certification" },
+  { name: "Genre et Équité en Éducation" },
 ]
 
 export function CallForPapers() {
   return (
-    <section id="cfp" className="bg-background px-4 py-16 md:px-6 md:py-24">
-      <div className="mx-auto max-w-[1800px]">
+    <section id="cfp" className="bg-white px-6 py-20 md:px-8 md:py-32">
+      <div className="mx-auto max-w-7xl">
         {/* Header */}
-        <div className="mb-10 flex items-center gap-2">
-          <div className="h-1.5 w-1.5 rounded-full bg-[#6C2EB7]" />
-          <span className="text-xs font-semibold uppercase tracking-wider text-[#6C2EB7]">Lieu</span>
+        <div className="mb-4 inline-flex items-center gap-2">
+          <div className="h-1 w-1 rounded-full bg-gray-900" />
+          <span className="text-xs font-semibold uppercase tracking-wider text-gray-600">Lieu d'excellence</span>
         </div>
 
+        {/* Title */}
+        <h2 className="mb-16 text-4xl font-bold leading-tight text-gray-900 md:text-5xl">
+          Immersion au cœur de la Méditerranée
+        </h2>
+
         {/* Main Content Grid */}
-        <div className="grid gap-6 lg:grid-cols-12">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left - Large Image */}
-          <div className="lg:col-span-5">
-            <div className="group relative h-[400px] overflow-hidden rounded-3xl lg:h-full">
+          <div className="flex flex-col justify-between">
+            <div className="relative h-96 overflow-hidden rounded-lg border border-gray-200 md:h-[500px]">
               <Image
                 src="https://images.unsplash.com/photo-1582653291997-079a1c04e5a1?q=80&w=2940&auto=format&fit=crop"
                 alt="Sousse Tunisia venue"
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1B1142]/80 via-transparent to-transparent" />
-              
-              {/* Location Badge */}
-              <div className="absolute left-4 top-4 rounded-full bg-white/20 px-4 py-2 backdrop-blur-sm">
-                <span className="text-sm font-medium text-white">Sousse, Tunisie</span>
-              </div>
-
-              {/* Bottom Content */}
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="text-2xl font-bold text-white md:text-3xl">
-                  Hôtel Mövenpick
-                  <br />
-                  Resort & Marine Spa
-                </h3>
-              </div>
             </div>
           </div>
 
           {/* Right Content */}
-          <div className="flex flex-col gap-6 lg:col-span-7">
-            {/* Title */}
-            <div>
-              <h2 className="text-3xl font-bold text-[#1B1142] md:text-4xl lg:text-5xl">
-                Vivez le colloque dans un{" "}
-                <span className="text-[#6C2EB7]">cadre méditerranéen</span>{" "}
-                exceptionnel
-              </h2>
-              <p className="mt-4 text-muted-foreground">
-                Notre hôtel partenaire offre des installations modernes, une connexion Wi-Fi haut débit, et un accès direct à la plage. Profitez de tarifs préférentiels pour les participants.
-              </p>
-            </div>
+          <div className="flex flex-col justify-center">
+            <h3 className="mb-6 text-3xl font-bold text-gray-900">
+              Hôtel Mövenpick Resort & Marine Spa
+            </h3>
+            
+            <p className="mb-8 text-lg leading-relaxed text-gray-600">
+              Notre venue partenaire offre des installations modernes de classe mondiale avec connexion Wi-Fi haute vitesse, espaces de conférence équipés, et accès direct à la plage de Sousse.
+            </p>
 
-            {/* Accordion List */}
-            <div className="flex-1 space-y-3">
-              {roomTypes.map((room) => (
+            {/* Features */}
+            <div className="mb-8 space-y-4">
+              {themes.map((theme) => (
                 <div
-                  key={room.name}
-                  className="group flex cursor-pointer items-center justify-between rounded-2xl bg-white p-5 shadow-sm transition-all hover:shadow-md"
+                  key={theme.name}
+                  className="flex items-center justify-between rounded-lg border border-gray-200 bg-gray-50 p-4 transition-all hover:bg-white hover:shadow-sm"
                 >
-                  <span className="text-sm font-semibold text-[#1B1142] md:text-base">{room.name}</span>
-                  <ChevronRight className="h-5 w-5 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-[#6C2EB7]" />
+                  <span className="text-base font-medium text-gray-900">{theme.name}</span>
+                  <ChevronRight className="h-5 w-5 text-gray-400" />
                 </div>
               ))}
             </div>
 
-            {/* Bottom Row */}
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-              <div>
-                <p className="text-sm text-muted-foreground">
-                  Hébergement de qualité avec vue sur la mer, piscine privée, terrasse panoramique, et espaces de networking pour les échanges entre participants.
-                </p>
-                <button className="group mt-3 flex items-center gap-2 text-sm font-semibold text-[#6C2EB7] transition-colors hover:text-[#5A2599]">
-                  Réserver Votre Place
-                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </button>
-              </div>
-
-              {/* Small Preview Image */}
-              <div className="h-24 w-32 shrink-0 overflow-hidden rounded-xl">
-                <Image
-                  src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=400&auto=format&fit=crop"
-                  alt="Hotel pool view"
-                  width={128}
-                  height={96}
-                  className="h-full w-full object-cover"
-                />
-              </div>
+            {/* CTA */}
+            <div className="flex gap-4">
+              <Button className="rounded-md bg-gray-900 px-6 py-3 text-white hover:bg-gray-800">
+                Réserver votre place
+              </Button>
+              <Button className="rounded-md border border-gray-300 px-6 py-3 text-gray-900 hover:bg-gray-50">
+                Voir plus
+              </Button>
             </div>
           </div>
         </div>
@@ -106,3 +78,4 @@ export function CallForPapers() {
     </section>
   )
 }
+

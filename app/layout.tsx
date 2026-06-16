@@ -42,12 +42,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="fr" className="bg-[#F8F6F3]">
+    <html lang="fr" className="bg-white">
     {/* suppressHydrationWarning is added to reduce noisy console errors when
       small client/server attribute mismatches occur (for example caused by
       browser extensions). This is a temporary mitigation while investigating
       the root cause. */}
-    <body suppressHydrationWarning={true} className={`${montserrat.className} antialiased bg-[#F8F6F3]`}>
+    <body suppressHydrationWarning={true} className={`${montserrat.className} antialiased bg-white`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
