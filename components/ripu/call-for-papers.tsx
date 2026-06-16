@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { ArrowUpRight, ChevronRight } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const themes = [
@@ -13,68 +13,89 @@ const themes = [
 
 export function CallForPapers() {
   return (
-    <section id="cfp" className="bg-white px-6 py-20 md:px-8 md:py-32">
+    <section id="cfp" className="relative bg-white px-6 py-24 md:px-8 md:py-40 overflow-hidden">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
-        <div className="mb-4 inline-flex items-center gap-2">
-          <div className="h-1 w-1 rounded-full bg-gray-900" />
-          <span className="text-xs font-semibold uppercase tracking-wider text-gray-600">Lieu d'excellence</span>
+        <div className="mb-20">
+          <div className="mb-6 inline-block">
+            <span className="text-xs font-semibold uppercase tracking-wider text-purple-700">Lieu d'excellence</span>
+            <div className="mt-2 h-0.5 w-12 bg-gradient-to-r from-purple-700 to-purple-400" />
+          </div>
+          <h2 className="text-6xl md:text-7xl font-light leading-tight text-black max-w-3xl">
+            Immersion au cœur de la Méditerranée
+          </h2>
         </div>
 
-        {/* Title */}
-        <h2 className="mb-16 text-4xl font-bold leading-tight text-gray-900 md:text-5xl">
-          Immersion au cœur de la Méditerranée
-        </h2>
-
-        {/* Main Content Grid */}
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-          {/* Left - Large Image */}
+        {/* Two Column Layout */}
+        <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
+          {/* Left - Image with Overlay */}
           <div className="flex flex-col justify-between">
-            <div className="relative h-96 overflow-hidden rounded-lg border border-gray-200 md:h-[500px]">
+            <div className="group relative h-96 overflow-hidden rounded-3xl border border-gray-200 md:h-[500px] shadow-lg">
               <Image
                 src="https://images.unsplash.com/photo-1582653291997-079a1c04e5a1?q=80&w=2940&auto=format&fit=crop"
                 alt="Sousse Tunisia venue"
                 fill
-                className="object-cover"
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-purple-700/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
           </div>
 
-          {/* Right Content */}
-          <div className="flex flex-col justify-center">
-            <h3 className="mb-6 text-3xl font-bold text-gray-900">
-              Hôtel Mövenpick Resort & Marine Spa
-            </h3>
-            
-            <p className="mb-8 text-lg leading-relaxed text-gray-600">
-              Notre venue partenaire offre des installations modernes de classe mondiale avec connexion Wi-Fi haute vitesse, espaces de conférence équipés, et accès direct à la plage de Sousse.
-            </p>
+          {/* Right - Content */}
+          <div className="flex flex-col justify-center space-y-8">
+            <div>
+              <h3 className="text-4xl md:text-5xl font-light text-black mb-4 leading-tight">
+                Hôtel Mövenpick Resort & Marine Spa
+              </h3>
+              <p className="text-lg leading-relaxed text-gray-600 max-w-lg">
+                Notre venue partenaire offre des installations modernes de classe mondiale avec connexion Wi-Fi haute vitesse, espaces de conférence équipés, et accès direct à la plage de Sousse.
+              </p>
+            </div>
 
-            {/* Features */}
-            <div className="mb-8 space-y-4">
-              {themes.map((theme) => (
+            {/* Features - Modern Cards */}
+            <div className="space-y-3">
+              {themes.map((theme, idx) => (
                 <div
                   key={theme.name}
-                  className="flex items-center justify-between rounded-lg border border-gray-200 bg-gray-50 p-4 transition-all hover:bg-white hover:shadow-sm"
+                  className="group/item flex items-center gap-4 p-4 rounded-xl hover:bg-purple-50 transition-all duration-300"
+                  style={{
+                    animation: `slideIn 0.5s ease-out ${idx * 0.08}s both`
+                  }}
                 >
-                  <span className="text-base font-medium text-gray-900">{theme.name}</span>
-                  <ChevronRight className="h-5 w-5 text-gray-400" />
+                  <div className="flex-shrink-0 h-2 w-2 rounded-full bg-purple-700 group-hover/item:scale-150 transition-transform" />
+                  <span className="text-base font-medium text-black group-hover/item:text-purple-700 transition-colors flex-1">
+                    {theme.name}
+                  </span>
+                  <ArrowUpRight className="h-4 w-4 text-gray-400 opacity-0 group-hover/item:opacity-100 transition-opacity" />
                 </div>
               ))}
             </div>
 
-            {/* CTA */}
-            <div className="flex gap-4">
-              <Button className="rounded-md bg-gray-900 px-6 py-3 text-white hover:bg-gray-800">
+            {/* CTAs */}
+            <div className="flex gap-4 pt-4">
+              <Button className="flex-1 rounded-xl bg-purple-700 px-8 py-4 text-white hover:bg-purple-600 transition-all font-semibold shadow-lg hover:shadow-xl">
                 Réserver votre place
               </Button>
-              <Button className="rounded-md border border-gray-300 px-6 py-3 text-gray-900 hover:bg-gray-50">
+              <Button className="flex-1 rounded-xl border-2 border-purple-200 bg-white px-8 py-4 text-purple-700 hover:bg-purple-50 transition-all font-semibold">
                 Voir plus
               </Button>
             </div>
           </div>
         </div>
       </div>
+
+      <style>{`
+        @keyframes slideIn {
+          from {
+            opacity: 0;
+            transform: translateX(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+      `}</style>
     </section>
   )
 }

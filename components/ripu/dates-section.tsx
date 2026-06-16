@@ -35,74 +35,108 @@ const dates = [
 
 export function DatesSection() {
   return (
-    <section id="dates" className="bg-white px-6 py-20 md:px-8 md:py-32">
-      <div className="mx-auto max-w-7xl">
-        {/* Section Header */}
-        <div className="mb-16">
-          <div className="mb-4 inline-flex items-center gap-2">
-            <div className="h-1 w-1 rounded-full bg-gray-900" />
-            <span className="text-xs font-semibold uppercase tracking-wider text-gray-600">Calendrier important</span>
+    <section id="dates" className="relative bg-white px-6 py-24 md:px-8 md:py-40">
+      <div className="mx-auto max-w-4xl">
+        {/* Header */}
+        <div className="mb-20">
+          <div className="mb-6 inline-block">
+            <span className="text-xs font-semibold uppercase tracking-wider text-purple-700">Calendrier</span>
+            <div className="mt-2 h-0.5 w-12 bg-gradient-to-r from-purple-700 to-purple-400" />
           </div>
-          <h2 className="text-4xl font-bold leading-tight text-gray-900 md:text-5xl">
+          <h2 className="text-6xl md:text-7xl font-light leading-tight text-black">
             Jalons du colloque
           </h2>
         </div>
 
-        {/* Timeline Cards */}
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {dates.map((item, index) => (
-            <div
-              key={index}
-              className={`relative flex flex-col rounded-lg border p-8 transition-all duration-300 ${
-                item.status === "highlight"
-                  ? "border-gray-900 bg-gray-900 text-white"
-                  : "border-gray-200 bg-gray-50"
-              }`}
-            >
-              {/* Step Number */}
-              <div className={`absolute -top-4 right-6 flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold ${
-                item.status === "highlight"
-                  ? "bg-white text-gray-900"
-                  : "bg-gray-900 text-white"
-              }`}>
-                {String(index + 1).padStart(2, "0")}
+        {/* Vertical Timeline */}
+        <div className="relative">
+          {/* Center Line */}
+          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-400 via-purple-600 to-purple-700" />
+
+          {/* Timeline Items */}
+          <div className="space-y-8">
+            {dates.map((item, index) => (
+              <div
+                key={index}
+                className="group relative pl-24 transition-all duration-500"
+                style={{
+                  animation: `slideInLeft 0.6s ease-out ${index * 0.1}s both`
+                }}
+              >
+                {/* Timeline Dot */}
+                <div
+                  className={`absolute left-0 top-0 h-16 w-16 -ml-8 flex items-center justify-center rounded-full transition-all duration-300 ${
+                    item.status === "highlight"
+                      ? "bg-gradient-to-br from-purple-600 to-purple-700 shadow-lg shadow-purple-600/50"
+                      : "bg-white border-2 border-purple-600"
+                  } group-hover:scale-110`}
+                >
+                  <item.icon
+                    className={`h-7 w-7 ${
+                      item.status === "highlight" ? "text-white" : "text-purple-600"
+                    }`}
+                  />
+                </div>
+
+                {/* Content Card */}
+                <div
+                  className={`rounded-2xl p-8 transition-all duration-300 group-hover:shadow-lg group-hover:-translate-y-1 ${
+                    item.status === "highlight"
+                      ? "bg-gradient-to-br from-purple-600 to-purple-700 text-white border-0"
+                      : "bg-white border border-gray-200 hover:border-purple-300"
+                  }`}
+                >
+                  <div className="flex items-start justify-between mb-4">
+                    <span
+                      className={`text-xs uppercase tracking-wider font-bold ${
+                        item.status === "highlight" ? "text-purple-100" : "text-purple-700"
+                      }`}
+                    >
+                      {item.label}
+                    </span>
+                    <span
+                      className={`text-sm font-bold ${
+                        item.status === "highlight" ? "text-purple-100" : "text-gray-400"
+                      }`}
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+
+                  <h3
+                    className={`text-2xl font-bold mb-3 ${
+                      item.status === "highlight" ? "text-white" : "text-black"
+                    }`}
+                  >
+                    {item.date}
+                  </h3>
+
+                  <p
+                    className={`text-sm leading-relaxed ${
+                      item.status === "highlight" ? "text-purple-50" : "text-gray-600"
+                    }`}
+                  >
+                    {item.description}
+                  </p>
+                </div>
               </div>
-
-              {/* Icon */}
-              <div className={`mb-6 inline-flex h-12 w-12 items-center justify-center rounded-lg ${
-                item.status === "highlight"
-                  ? "bg-white/10"
-                  : "bg-gray-900"
-              }`}>
-                <item.icon className={`h-6 w-6 ${
-                  item.status === "highlight" ? "text-white" : "text-white"
-                }`} />
-              </div>
-
-              {/* Label */}
-              <span className={`mb-2 text-xs font-semibold uppercase tracking-wider ${
-                item.status === "highlight" ? "text-white/70" : "text-gray-600"
-              }`}>
-                {item.label}
-              </span>
-
-              {/* Date */}
-              <h3 className={`mb-4 text-xl font-bold ${
-                item.status === "highlight" ? "text-white" : "text-gray-900"
-              }`}>
-                {item.date}
-              </h3>
-
-              {/* Description */}
-              <p className={`text-sm leading-relaxed ${
-                item.status === "highlight" ? "text-white/80" : "text-gray-600"
-              }`}>
-                {item.description}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
+
+      <style>{`
+        @keyframes slideInLeft {
+          from {
+            opacity: 0;
+            transform: translateX(-30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+      `}</style>
     </section>
   )
 }

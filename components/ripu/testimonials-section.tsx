@@ -29,61 +29,87 @@ const testimonials = [
 
 export function TestimonialsSection() {
   return (
-    <section className="bg-white px-6 py-20 md:px-8 md:py-32">
+    <section className="relative bg-white px-6 py-24 md:px-8 md:py-40 overflow-hidden">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
-        <div className="mb-16 text-center">
-          <div className="mb-4 inline-flex items-center gap-2">
-            <div className="h-1 w-1 rounded-full bg-purple-600" />
-            <span className="text-xs font-semibold uppercase tracking-wider text-purple-600">Témoignages</span>
+        <div className="mb-20 text-center max-w-2xl mx-auto">
+          <div className="mb-6 inline-block">
+            <span className="text-xs font-semibold uppercase tracking-wider text-purple-700">Témoignages</span>
+            <div className="mt-2 h-0.5 w-12 mx-auto bg-gradient-to-r from-purple-700 to-purple-400" />
           </div>
-          <h2 className="text-5xl md:text-6xl font-light text-black">
+          <h2 className="text-6xl md:text-7xl font-light text-black">
             Ce qu&apos;ils retiennent de RIPU25
           </h2>
         </div>
 
-        {/* Testimonials Grid */}
+        {/* Testimonials Grid with Stagger */}
         <div className="grid gap-8 md:grid-cols-3">
           {testimonials.map((testimonial, index) => (
             <div
               key={testimonial.name}
-              className={`group relative overflow-hidden rounded-2xl p-8 transition-all border ${
-                index === 1 
-                  ? "bg-gradient-to-br from-purple-600 to-purple-700 text-white border-purple-600" 
-                  : "bg-white border-gray-200 hover:border-purple-300"
+              className={`group relative overflow-hidden rounded-3xl p-8 transition-all duration-500 border flex flex-col h-full ${
+                index === 1
+                  ? "bg-gradient-to-br from-purple-600 to-purple-700 text-white border-purple-600 md:scale-105"
+                  : "bg-white border-gray-200 hover:border-purple-400 hover:shadow-lg hover:-translate-y-2"
               }`}
+              style={{
+                animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both`
+              }}
             >
               {/* Rating */}
               <div className="flex gap-1 mb-6">
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <Star
                     key={i}
-                    className={`h-4 w-4 ${index === 1 ? "fill-yellow-300 text-yellow-300" : "fill-purple-400 text-purple-400"}`}
+                    className={`h-4 w-4 transition-transform group-hover:scale-110 ${
+                      index === 1 ? "fill-yellow-300 text-yellow-300" : "fill-purple-500 text-purple-500"
+                    }`}
                   />
                 ))}
               </div>
 
               {/* Quote */}
-              <p className={`text-base leading-relaxed mb-8 ${index === 1 ? "text-white/95" : "text-gray-700"}`}>
+              <p
+                className={`text-base leading-relaxed mb-8 flex-1 ${
+                  index === 1 ? "text-white/95" : "text-gray-700 group-hover:text-black transition-colors"
+                }`}
+              >
                 &ldquo;{testimonial.quote}&rdquo;
               </p>
 
+              {/* Divider */}
+              <div
+                className={`mb-6 h-0.5 w-8 ${
+                  index === 1 ? "bg-white/20" : "bg-purple-200"
+                }`}
+              />
+
               {/* Author */}
-              <div className="flex items-center gap-3 pt-6 border-t" style={{ borderColor: index === 1 ? 'rgba(255,255,255,0.2)' : '#e5e7eb' }}>
-                <div className="h-12 w-12 overflow-hidden rounded-full flex-shrink-0">
+              <div className="flex items-center gap-4">
+                <div className="h-14 w-14 overflow-hidden rounded-full flex-shrink-0 ring-2 ring-offset-0" style={{
+                  ringColor: index === 1 ? 'rgba(255,255,255,0.3)' : '#e5e7eb'
+                }}>
                   <Image
                     src={testimonial.image}
                     alt={testimonial.name}
-                    width={48}
-                    height={48}
+                    width={56}
+                    height={56}
                     className="h-full w-full object-cover"
                   />
                 </div>
                 <div>
-                  <p className={`font-semibold text-sm ${index === 1 ? "text-white" : "text-black"}`}>
+                  <p
+                    className={`font-semibold text-sm ${
+                      index === 1 ? "text-white" : "text-black"
+                    }`}
+                  >
                     {testimonial.name}
                   </p>
-                  <p className={`text-xs ${index === 1 ? "text-white/70" : "text-gray-600"}`}>
+                  <p
+                    className={`text-xs mt-0.5 ${
+                      index === 1 ? "text-white/70" : "text-gray-500"
+                    }`}
+                  >
                     {testimonial.institution}
                   </p>
                 </div>
@@ -92,6 +118,19 @@ export function TestimonialsSection() {
           ))}
         </div>
       </div>
+
+      <style>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </section>
   )
 }
